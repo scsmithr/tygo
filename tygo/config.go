@@ -35,6 +35,9 @@ type PackageConfig struct {
 
 	// FallbackType defines the Typescript type used as a fallback for unknown Go types.
 	FallbackType string `yaml:"fallback_type"`
+
+	// SkipSemicolons skips writing semicolons at the end of lines.
+	SkipSemicolons bool `yaml:"skip_semicolons"`
 }
 
 type Config struct {

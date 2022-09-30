@@ -150,6 +150,9 @@ packages:
 
     # Customize the indentation (use \t if you want tabs)
     indent: "    "
+    
+    # Optionally skip writing semicolons to the end of lines.
+    skip_semicolons: true
 
     # Specify your own custom type translations, useful for custom types, `time.Time` and `null.String`.
     # Be default unrecognized types will be `any`.

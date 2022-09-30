@@ -36,6 +36,12 @@ func (g *PackageGenerator) writeIndent(s *strings.Builder, depth int) {
 	}
 }
 
+func (g *PackageGenerator) maybeWriteSemicolon(s *strings.Builder) {
+	if !g.conf.SkipSemicolons {
+		s.WriteByte(';')
+	}
+}
+
 func (g *PackageGenerator) writeType(s *strings.Builder, t ast.Expr, depth int, optionalParens bool) {
 	switch t := t.(type) {
 	case *ast.StarExpr:
@@ -247,7 +253,7 @@ func (g *PackageGenerator) writeStructFields(s *strings.Builder, fields []*ast.F
 		} else {
 			s.WriteString(tstype)
 		}
-		s.WriteByte(';')
+		g.maybeWriteSemicolon(s)
 
 		if f.Comment != nil {
 			// Line comment is present, that means a comment after the field.

@@ -177,7 +177,7 @@ func (g *PackageGenerator) writeValueSpec(s *strings.Builder, vs *ast.ValueSpec,
 			s.WriteString(valueString)
 		}
 
-		s.WriteByte(';')
+		g.maybeWriteSemicolon(s)
 		if vs.Comment != nil {
 			s.WriteString(" // " + vs.Comment.Text())
 		} else {
